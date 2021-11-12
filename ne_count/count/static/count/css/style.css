@@ -1,0 +1,182 @@
+@font-face {
+    font-family: Montserrat;
+    src: url(//ne_count/count/static/count/fonts/Montserrat-Regular.ttf);
+}
+.my-menu {
+    box-shadow: 0 0 1em rgba(0,0,0,0.5);
+    font-size: 0.7em;
+}
+tr {
+    text-align: center;
+    vertical-align: middle;
+}
+body {
+    font-family: Montserrat;
+    font-size: 1.3em;
+}
+#logo {
+    width: 5em;
+}
+#img_enter{
+    width: 5em;
+}
+#note {
+    box-shadow: 0 0 1em rgba(0,0,0,0.5);
+    width: 97%;
+    border-radius: 0.5em;
+}
+#authentication {
+    height: 100vh;
+    background: #e9faff;
+    font-family: OpenSans-Regular, sans-serif;
+}
+.wrap-login100 {
+    background: #fff;
+    border-radius: 1em;
+    box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, .1);
+    overflow: hidden;
+    width: 25vw;
+    padding: 2em;
+}
+.login100-form{
+    width: 100%;
+}
+.login100-form-title{
+    color: #555;
+    display: block;
+    font-size: 1.5em;
+    line-height: 2;
+    text-align: center;
+}
+.wrap-input100{
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    position: relative;
+    width: 100%;
+}
+.input100{
+    background: 0 0;
+    color: #666;
+    display: block;
+    line-height: 1.3;
+    width: 100%;
+    border: none;
+}
+.focus-input100-1, .focus-input100-2{
+    display: block;
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.focus-input100-1::before, .focus-input100-2::before{
+    background-color: #4272d7;
+    content: "";
+    display: block;
+    height: 1px;
+    position: absolute;
+    width: 0;
+}
+.focus-input100-1::before{
+    left: 0;
+    top: -1px;
+}
+.focus-input100-2::before{
+    bottom: -1px;
+    right: 0;
+}
+.focus-input100-1::after,.focus-input100-2::after
+{
+	background-color: #4272d7;
+	content: "";
+	display: block;
+	height: 0;
+	position: absolute;
+	width: 1px;
+}
+.focus-input100-1::after
+{
+	right: -1px;
+	top: 0;
+}
+.focus-input100-2::after
+{
+	bottom: 0;
+	left: -1px;
+}
+.input100:focus+.focus-input100-1::before
+{
+	animation: full-w .2s linear 0s;
+	animation-fill-mode: both;
+}
+.input100:focus+.focus-input100-1::after
+{
+	animation: full-h .1s linear .2s;
+	animation-fill-mode: both;
+}
+.input100:focus+.focus-input100-1+.focus-input100-2::before
+{
+	animation: full-w .2s linear .3s;
+	animation-fill-mode: both;
+}
+.input100:focus+.focus-input100-1+.focus-input100-2::after
+{
+	animation: full-h .1s linear .5s;
+	animation-fill-mode: both;
+}
+@keyframes full-w
+{
+	to
+	{
+		width: calc(100% + 1px);
+	}
+}
+@keyframes full-h
+{
+	to
+	{
+		height: calc(100% + 1px);
+	}
+}
+.container-login100-form-btn
+{
+	display: flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-box;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+	width: 100%;
+    margin-top: 0.5em;
+}
+.login100-form-btn
+{
+	align-items: center;
+	background-color: #4272d7;
+	color: #fff;
+	display: flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-box;
+	display: -webkit-flex;
+	font-family: OpenSans-Regular;
+	font-size: 0.8em;
+	height: 2em;
+	justify-content: center;
+	line-height: 1.2;
+	padding: 0 0.7em;
+	text-transform: uppercase;
+	transition: all .4s;
+	width: 100%;
+    border: none;
+}
+.login100-form-btn:hover
+{
+	background-color: #333;
+}
+.validate-input
+{
+	position: relative;
+}

@@ -1,0 +1,61 @@
+{% load static %}
+{% load count_tags %}
+
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'count/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'count/css/style.css' %}" >
+    <script defer src="{% static 'count/js/bootstrap.bundle.min.js' %} "></script>
+    <script src="{% static 'count/js/jQuery-3.6.min.js' %}"></script>
+    <script src="{% static 'count/js/Script.js' %}"></script>
+    <title>{{title}}</title>
+</head>
+<body>
+{% block authentication %}
+{% endblock authentication%}
+{% if request.user.is_authenticated %}
+{% block menu %}
+    <header id="header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary border border-success border-2">
+            <div class="container-fluid">
+                <a href="{% url 'home' %}" class="navbar-brend">
+                    <img id="logo" src="{% static 'count/images/logo_1.png' %}" alt="" width="50%">
+                </a>
+                <div class="collapse navbar-collapse" id="navbarSupportContent">
+                    <ul class="navbar-nav me-auto mb-lg-0">
+                        {%  for m in menu %}
+                            {% if forloop.first %}
+                                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url m.url_name %}">{{ m.title }}</a></li>
+                            {% else %}
+                                <li class="nav-item"><a class="nav-link" href="{% url m.url_name %}">{{ m.title }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <div class="d-flex">
+                            <span class="nav-link active">{{ user.username }}</span> <a href="{% url 'logout' %}" class="nav-link">| Выйти</a>
+                    </div> 
+                </div>
+            </div>
+        </nav>
+    </header>
+{% endblock menu %}
+    <main class="container-fluid">
+        <div class="row">
+            {% list_stations cat_selected=cat_selected %}
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+    <footer class="container-fluid">
+    </footer>
+<script>
+</script>
+{% endif %}
+</body>
+
+</html>

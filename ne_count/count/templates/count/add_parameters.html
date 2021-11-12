@@ -1,0 +1,30 @@
+{% extends 'count/base.html' %}
+
+{% block content %}
+<article class="form_add_parameters col-10 p-5">
+    <h1 class="h1" style="text-align: center;">Добавление параметров</h1>
+    <form action="{% url 'add_parameters' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row g-3 align-items-center">
+            <span class="col-12">{{ form.non_field_errors }}</span>
+            {% for f in form %}
+                <div class="col-4">
+                    <label for="{{ f.is_for_label }}" class="col-form-label">{{ f.label }}: </label>
+                </div>
+                <div class="col-4">
+                    {{ f }}
+                </div>
+                <div class="col-4">
+                    <span class="form-text">{{f.errors }}</span> 
+                </div>
+                <br>
+            {% endfor %}
+        </div>
+        <div class="row justify-content-center">
+            <div class="col mt-3">
+                <input type="submit" class="btn btn-primary btn-lg" value="Отправить">
+            </div>
+        </div>
+    </form>
+</article>
+{% endblock %}

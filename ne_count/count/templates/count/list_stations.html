@@ -1,0 +1,16 @@
+
+<article id="left_menu" class="col-2 my-menu p-1">
+    <div class="d-flex flex-column flex-shrink-0 bg-white">
+        <ul class="nav nav-pills flex-column mb-auto">
+            {% for s in station %}
+                {% if s.pk == cat_selected %}
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">{{ s.station_number }}</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{{ s.get_absolute_url }}">{{ s.station_number }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</article>

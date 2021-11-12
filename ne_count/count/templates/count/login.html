@@ -1,0 +1,24 @@
+{% extends 'count/base.html' %}
+
+{% block authentication %}
+    <div id="authentication" class="d-flex justify-content-center align-items-center">
+        <div class="wrap-login100">
+                <form method="post" class="login100-form">
+                    {% csrf_token %}
+                    <span class="login100-form-title">Авторизация</span>
+                    {{ form.non_field_errors }}
+                    {% for f in form %}
+                    <div class="wrap-input100 validate-input">
+                        <span class="focus-input100-1"></span>
+                        <span class="focus-input100-2"></span>
+                        {{ f }}
+                    </div>
+                    {{ f.errors }}
+                    {% endfor %}
+                    <div class="container-login100-form-btn">
+                        <button type="submit" class="login100-form-btn">Войти</button>
+                    </div>
+                </form>
+        </div>
+    </div>
+{% endblock authentication%}

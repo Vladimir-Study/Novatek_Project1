@@ -1,0 +1,19 @@
+{% extends 'count/base.html' %}
+
+{% block content %}
+<arcticle class="col-10 p-6">
+        {% for p in parameters %}
+    <div class="container-fluid m-3" id="note">
+        {% if p.journal != "" %}
+            <div class="row pt-2">
+                <span class="col-8 text-muted">Дата: {{ p.time_work|date:"d.m.Y" }}</span>
+                <span class="col text-muted">Дежурный: {{ p.duty_officer }}</span>
+            </div> 
+            <div class="row mt-4">
+                <p>{{ p.journal }}</p>
+            </div> 
+        {% endif %}    
+    </div>
+        {% endfor %}
+</arcticle>
+{% endblock %}

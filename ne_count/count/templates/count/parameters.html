@@ -1,0 +1,33 @@
+{% extends 'count/base.html' %}
+
+{% block content %}
+<arcticle class="col-10 p-0" id="parameters">
+    <span id="json" style="display: none;">{{ my_ser }}</span>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Дата</th>
+                <th scope="col">Двигатель</th>
+                <th scope="col">Наработка за сутки</th>
+                <th scope="col">Наработка станции с НЭ</th>
+                <th scope="col">Наработка двигателя с НЭ</th>
+                <th scope="col">Наработка двигателя ППКР</th>
+                <th scope="col">Наработка после ТО</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for i in parameters %}
+                    <tr class="table-primary">
+                        <td>{{ i.time_work|date:"d.m.Y" }}</td>
+                        <td>{{ i.engine|escape }}</td>
+                        <td class="hours">{{ i.OT_in_day }}</td>
+                        <td class="nar_st"></td>
+                        <td class="nar_eng_SNE"></td>
+                        <td class="nar_eng_PPKR"></td>
+                        <td class="nar_eng_PTO"></td>
+                    </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+</arcticle>
+{% endblock %}

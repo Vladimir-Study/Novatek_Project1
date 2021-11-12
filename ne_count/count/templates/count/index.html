@@ -1,0 +1,40 @@
+{% extends 'count/base.html' %}
+
+{% block content %}
+
+<arcticle class="col-10 p-0">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="row">Дата</th>
+                <td>{{ date_now }}</td>
+            </tr>
+            <tr>
+                <th scope="col">№ станции</th>
+                <th scope="col">Наработка в сутки</th>
+                <th scope="col">Кол-во часов до ТО</th>
+                <th scope="col">Следующее ТО</th>
+                <th scope="col">Статус</th>
+                <th scope="col">Наработка ДПКР</th>
+                <th scope="col">Наработка ДСНЭ</th>
+                <th scope="col">Наработка ССНЭ</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for p in parameters %}
+            <tr>
+                <td>{{ p.station }}</td>
+                <td>{{ p.OT_in_day }}</td>
+                <td id="day_TO"></td>
+                <td></td>
+                <td>{{ p.status }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</arcticle>
+
+{% endblock %}
